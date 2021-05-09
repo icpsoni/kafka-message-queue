@@ -1,15 +1,17 @@
-import { KafkaClient } from './index.js';
+import { KafkaClient, kafkaTopic } from "./kafka-config.js";
 
-export const sendMessageToQueue = async () => {
+export const sendMessageToQueue = async (message) => {
   const producer = KafkaClient.producer();
-
   await producer.connect();
+  console.info('Sending Message: ', message);
   await producer.send({
-    topic: 'queue',
+    topic: kafkaTopic,
     messages: [
-      { value: 'Hello value'+ Math.random()}
+      {
+        value: message // Your message data goes here
+      }
     ]
   });
-
+  // Disconnect producer once message sending is done.
   await producer.disconnect();
-}
+};

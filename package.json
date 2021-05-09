@@ -1,0 +1,25 @@
+{
+  "name": "kafka-message-queue",
+  "version": "1.0.0",
+  "description": "Message Queue in kafka using kafka.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test:send": "node ./test/sendMessages.js",
+    "test:receive": "node ./test/consumeMessage.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icpsoni/kafka-message-queue.git"
+  },
+  "author": "Chandraprakash Soni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icpsoni/kafka-message-queue/issues"
+  },
+  "homepage": "https://github.com/icpsoni/kafka-message-queue#readme",
+  "dependencies": {
+    "kafkajs": "1.15.0"
+  },
+  "type": "module"
+}

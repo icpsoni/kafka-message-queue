@@ -1,12 +1,13 @@
-import { Kafka } from 'kafkajs';
-import { sendMessageToQueue } from './producer.js';
-import { consumeMessage, consumeMessageBatch } from "./consumer.js";
+import { sendMessageToQueue } from "./producer.js";
+import { consumeMessage } from "./message-queue.js";
 
-export const KafkaClient = new Kafka({
-    brokers: ['192.168.29.133:9092']
-});
+// Tip: To Send Object send them as string and parse while consuming
 
+// Sending 10 messages to queue
+for (let i = 1; i <= 10; i++) {
+    const message = 'Hello Test Message: ' + i;
+    await sendMessageToQueue(message);
+}
 
-// await sendMessageToQueue();
+// Consuming the sent messages
 await consumeMessage();
-// await consumeMessageBatch();
